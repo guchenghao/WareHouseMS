@@ -1,0 +1,156 @@
+<!--
+File: /Users/guchenghao/good_system/public/components/views/output_goods.html
+Project: /Users/guchenghao/good_system
+Created Date: Wednesday, December 13th 2017, 3:21:32 pm
+Author: Richard Gu
+-----
+Last Modified: Wed Dec 27 2017
+Modified By: Richard Gu
+-----
+Copyright (c) 2017 University
+#
+All shall be well and all shall be well and all manner of things shall be well.
+We're doomed!
+-->
+
+<div class="container panel panel-info" ng-controller="outputGoodscontroller">
+    <h1 class="panel panel-heading text-center">
+        货物出库
+    </h1>
+    <div class="panel panel-body">
+        <form class="form-horizontal" role="form" id="SaleGoodsForm">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">出库清单号</span>
+                    <input name="listID" type="text" class="form-control" ng-model="saleGoodsList.listID" placeholder="小写字母s+无符号整数，例如：s11、s12、s9"
+                        required="on" pattern="(s[0-9]+)" oninvalid="setCustomValidity('请输入正确格式,例如：b1')">
+                    <span class="input-group-addon text-danger">例如：s11、s12、s9</span>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 panel panel-success">
+                <div class="panel panel-body">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">服装</span>
+                            <select class="form-control" ng-model="saleGoodsList.clothes.name">
+                                <option ng-repeat="item in goods.products | filter:categratesFilterFn2" ng-value="{{item.goodsName}}">{{item.goodsName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货物类别</span>
+                            <select class="form-control" ng-model="saleGoodsList.clothes.cate" required="on">
+                                <option value="服装">服装</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">服装数量</span>
+                            <input type="number" class="form-control" ng-model="saleGoodsList.clothes.num">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">发往公司或地点</span>
+                            <select class="form-control" ng-model="saleGoodsList.clothes.saleCompany">
+                                <option value="Company W">Company W</option>
+                                <option value="Company M">Company M</option>
+                                <option value="Company S">Company S</option>
+                                <option value="Company F">Company F</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 panel panel-success">
+                <div class="panel panel-body">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">食品</span>
+                            <select class="form-control" ng-model="saleGoodsList.foods.name">
+                                <option ng-repeat="item in goods.products | filter:categratesFilterFn1" ng-value="{{item.goodsName}}">{{item.goodsName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货物类别</span>
+                            <select class="form-control" ng-model="saleGoodsList.foods.cate" required="on">
+                                <option value="食品" ng-selected="selected">食品</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">食品数量</span>
+                            <input type="number" class="form-control" ng-model="saleGoodsList.foods.num">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">发往公司或地点</span>
+                            <select class="form-control" ng-model="saleGoodsList.foods.saleCompany">
+                                <option value="Company W">Company W</option>
+                                <option value="Company M">Company M</option>
+                                <option value="Company S">Company S</option>
+                                <option value="Company F">Company F</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 panel panel-success">
+                <div class="panel panel-body">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">文具</span>
+                            <select class="form-control" ng-model="saleGoodsList.writingMaterial.name">
+                                <option ng-repeat="item in goods.products | filter:categratesFilterFn3" ng-value="{{item.goodsName}}">{{item.goodsName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货物类别</span>
+                            <select class="form-control" ng-model="saleGoodsList.writingMaterial.cate" required="on">
+                                <option value="文具" ng-selected="selected">文具</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">文具数量</span>
+                            <input type="number" class="form-control" ng-model="saleGoodsList.writingMaterial.num">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">发往公司或地点</span>
+                            <select class="form-control" ng-model="saleGoodsList.writingMaterial.saleCompany">
+                                <option value="Company W">Company W</option>
+                                <option value="Company M">Company M</option>
+                                <option value="Company S">Company S</option>
+                                <option value="Company F">Company F</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10 text-center">
+                    <button type="submit" class="btn btn-primary btn-group-justified active btn-lg" id="insertproduct" data-toggle="tooltip"
+                        data-placement="top" title="请仔细检查提交的选项" ng-click="insertList(saleGoodsList)">提交</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

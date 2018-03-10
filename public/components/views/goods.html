@@ -1,0 +1,207 @@
+<!--
+File: /Users/guchenghao/good_system/public/components/views/goods.html
+Project: /Users/guchenghao/good_system
+Created Date: Saturday, December 16th 2017, 9:31:35 am
+Author: Richard Gu
+-----
+Last Modified: Sat Dec 16 2017
+Modified By: Richard Gu
+-----
+Copyright (c) 2017 University
+#
+All shall be well and all shall be well and all manner of things shall be well.
+We're doomed!
+-->
+
+<!-- <div class="alert alert-danger" ng-show="goods.err">
+    Error ({{goods.err.status}}). The product data was not loaded.
+    <a href="#/goods" class="alert-link">Click here to try again</a>
+</div>
+
+<div class="container" ng-controller="productscontroller" ng-hide="goods.err">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="list-group" ng-repeat="item in goods.products">
+                <a ng-class="getProductClass(item)" ng-click="selectProduct(item)" class="list-group-item" role="button">
+                    {{item.goodsName}}
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <div class="alert alert-warning" ng-hide="selectedProduct">
+                        Please Select one product!
+                        <a ng-href="#/" class="alert-link">Click here to try again</a>
+                    </div>
+                    <div class="container" ng-show="selectedProduct">
+                        <p class=".lead">
+                            货物名称：
+                            <span class="text-danger">{{selectedProduct.goodsName}}</span>
+                        </p>
+                        <p class=".lead">
+                            货物类别：
+                            <span class="text-danger">{{selectedProduct.categrates}}</span>
+                        </p>
+                        <p class=".lead">
+                            货物数量：
+                            <span class="text-danger">{{selectedProduct.goodsNum}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row panel panel-default" ng-controller="updateGoodscontroller">
+        <h2 class="text-success text-center">录入货物</h2>
+        <div class="panel panel-body">
+
+            <div class="col-md-6 col-sm-6 pull-left">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="goodsNname" class="col-sm-3 control-label">货物名称</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="goodsName" placeholder="Name" ng-model="updateGoods.goodsName" required="on">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="categrates" class="col-sm-3 control-label">货物类别</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" ng-model="updateGoods.categrates" name="categrates" required="on">
+                                <option value="服装">服装</option>
+                                <option value="食品">食品</option>
+                                <option value="文具">文具</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodsNum" class="col-sm-3 control-label">货物数量</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="goodsNum" ng-model="updateGoods.goodsNum" placeholder="Number">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="updateGoods.sure" required="on"> 确定
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 text-right">
+                            <button type="submit" class="btn btn-primary btn-group-justified active btn-lg" id="insertproduct" data-toggle="tooltip"
+                                data-placement="top" title="请仔细检查提交的选项" ng-click="insertGoods(updateGoods)" ng-class="sureSubmit()">录入</button>
+                        </div>
+                    </div>
+                    <p class=".lead text-center text-danger" ng-show="updateResults.err">
+                        Error({{updateResults.err}}),录入失败，请重试！！
+                    </p>
+                </form>
+            </div>
+            <div class="col-md-6 col-sm-6 pull-right">
+                <div class="container">
+                    <p class=".lead">
+                        货物名称：
+                        <span class="text-danger">{{updateGoods.goodsName}}</span>
+                    </p>
+                    <p class=".lead">
+                        货物类别：
+                        <span class="text-danger">{{updateGoods.categrates}}</span>
+                    </p>
+                    <p class=".lead">
+                        货物数量：
+                        <span class="text-danger">{{updateGoods.goodsNum}}</span>
+                    </p>
+                    <p class=".lead">
+                        确定：
+                        <span class="text-danger">{{updateGoods.sure}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div class="container" ng-controller="productscontroller">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="list-group" ng-repeat="item in goods.products">
+                <a ng-class="getProductClass(item)" ng-click="selectProduct(item)" class="list-group-item" role="button">
+                    {{item.goodsName}}
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <div class="alert alert-warning" ng-hide="selectedProduct">
+                        Please Select one product!
+                        <a ng-href="#/" class="alert-link">Click here to try again</a>
+                    </div>
+                    <div class="container" ng-show="selectedProduct">
+                        <p class=".lead">
+                            货物名称：
+                            <span class="text-danger">{{selectedProduct.goodsName}}</span>
+                        </p>
+                        <p class=".lead">
+                            货物类别：
+                            <span class="text-danger">{{selectedProduct.categrates}}</span>
+                        </p>
+                        <p class=".lead">
+                            货物数量：
+                            <span class="text-danger">{{selectedProduct.goodsNum}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-controller="updateGoodscontroller">
+        <h2 class="text-success text-center">录入货物</h2>
+        <div class="panel panel-body">
+
+            <div class="col-md-6 col-sm-6 pull-left">
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="container" ng-controller="productscontroller">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="list-group" ng-repeat="item in goods.products">
+                <a ng-class="getProductClass(item)" ng-click="selectProduct(item)" class="list-group-item" role="button">
+                    {{item.goodsName}}
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <div class="alert alert-warning" ng-hide="selectedProduct">
+                        Please Select one product!
+                        <a ng-href="#/" class="alert-link">Click here to try again</a>
+                    </div>
+                    <div class="container" ng-show="selectedProduct">
+                        <p class=".lead">
+                            货物名称：
+                            <span class="text-danger">{{selectedProduct.goodsName}}</span>
+                        </p>
+                        <p class=".lead">
+                            货物类别：
+                            <span class="text-danger">{{selectedProduct.categrates}}</span>
+                        </p>
+                        <p class=".lead">
+                            货物数量：
+                            <span class="text-danger">{{selectedProduct.goodsNum}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

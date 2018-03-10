@@ -1,0 +1,36 @@
+<div class="alert alert-danger" ng-show="salelist.err">
+    Error ({{salelist.err.status}}). The sale_list data was not exsited.
+    <a href="/app.html" class="alert-link">Click here to try again</a>
+</div>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-controller="salelistcontroller">
+  <div class="panel panel-default" ng-repeat="list in salelist.data">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" ng-href="/sale_list/#{{list.saleID}}" aria-expanded="true" aria-controls="'$index'">
+          清单{{list.saleID}}
+        </a>
+      </h4>
+    </div>
+    <div id="{{list.listID}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="{{list.saleID}}">
+      <div class="panel-body">
+        <p class=".lead">
+            服装：<span class="text-success">{{list.clothes}}</span>
+        </p>
+        <p class=".lead">
+            食品：<span class="text-success">{{list.foods}}</span>
+        </p>
+        <p class=".lead">
+            文具：<span class="text-success">{{list.writingMaterial}}</span>
+        </p>
+        <p class=".lead">
+          出库时间：
+          <span class="text-success">{{list.saleDate}}</span>
+        </p>
+        <p class=".lead">
+          转入：
+          <a href="#/sale_record">清单详情</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

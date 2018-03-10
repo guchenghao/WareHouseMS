@@ -1,0 +1,49 @@
+<div class="container panel panel-success" ng-controller="saledetailcontroller">
+    <h2 class="panel panel-heading text-center">清单详情</h2>
+    <div class="row panel panel-body">
+        <div class="input-group input-group-lg">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{selectedListID}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a class="text-warning" role="button" ng-click="selectFilter('购物清单号')">购物清单号</a>
+                    </li>
+                    <li>
+                        <a class="text-warning" role="button" ng-click="selectFilter('货物类别')">货物类别</a>
+                    </li>
+                    <li>
+                        <a class="text-warning" role="button" ng-click="selectFilter('货物名称')">货物名称</a>
+                    </li>
+                </ul>
+            </div>
+            <input type="text" class="form-control" ng-model="filterText" placeholder="请输入相应文本...">
+        </div>
+    </div>
+    <div class="panel panel-footer table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>出库清单号</th>
+                    <th>货物名称</th>
+                    <th>货物类别</th>
+                    <th>货物数量</th>
+                    <th>发往公司或地点</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="record in saleRecord.data | filter:filterTable">
+                    <td>{{record.listID}}</td>
+                    <td>{{record.goodsName}}</td>
+                    <td>{{record.categrates}}</td>
+                    <td>{{record.buyNum}}</td>
+                    <td>{{record.buyPrice}}</td>
+                    <td>{{record.sourceCompany}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>

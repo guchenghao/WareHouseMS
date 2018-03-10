@@ -1,0 +1,45 @@
+{
+	"type": "Collection",
+	"properties": {
+		"saleID": {
+			"name": "saleID",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "saleID",
+			"order": 0
+		},
+		"categrates": {
+			"name": "categrates",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "categrates",
+			"order": 1
+		},
+		"saleName": {
+			"name": "saleName",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "saleName",
+			"order": 2
+		},
+		"saleNum": {
+			"name": "saleNum",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "saleNum",
+			"order": 3
+		},
+		"saleCompany": {
+			"name": "saleCompany",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "saleCompany",
+			"order": 4
+		}
+	}
+}

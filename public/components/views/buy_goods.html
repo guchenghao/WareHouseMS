@@ -1,0 +1,182 @@
+<div class="container panel panel-info" ng-controller="buygoodscontroller">
+    <h1 class="panel panel-heading text-center">
+        重购货物
+    </h1>
+    <div class="panel panel-body">
+        <form class="form-horizontal" role="form" id="buyGoodsForm">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon">购物清单号</span>
+                    <input name="listID" type="text" class="form-control" ng-model="buyGoodsList.listID" placeholder="小写字母b+无符号整数，例如：b11、b12、b9" required="on" pattern="(b[0-9]+)"  oninvalid="setCustomValidity('请输入正确格式,例如：b1')">
+                    <span class="input-group-addon text-danger">例如：b11、b12、b9</span>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">采购员</span>
+                    <input type="text" class="form-control" ng-model="buyGoodsList.buyer" required="on">
+                    <span class="input-group-addon">例如：guchenghao</span>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 panel panel-success">
+                <div class="panel panel-body">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">服装</span>
+                            <select class="form-control" ng-model="buyGoodsList.clothes.name">
+                                <option ng-repeat="item in goods.products | filter:categratesFilterFn2" ng-value="{{item.goodsName}}">{{item.goodsName}}</option>
+                            </select>
+                            <span class="input-group-addon"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货物类别</span>
+                            <select class="form-control" ng-model="buyGoodsList.clothes.cate" required="on">
+                                <option value="服装">服装</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">服装数量</span>
+                            <input type="number" class="form-control" min="100" max="100000" ng-model="buyGoodsList.clothes.num">
+                            <span class="input-group-addon">至少100</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">服装单价</span>
+                            <input type="number" class="form-control" ng-model="buyGoodsList.clothes.price">
+                            <span class="input-group-addon">￥</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货源公司</span>
+                            <select class="form-control" ng-model="buyGoodsList.clothes.sourceCom">
+                                <option value="Company W">Company W</option>
+                                <option value="Company M">Company M</option>
+                                <option value="Company S">Company S</option>
+                                <option value="Company F">Company F</option>
+                            </select>
+                            <span class="input-group-addon">￥</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-footer alert alert-warning">
+                    服装费用：￥<mark class="text-danger" ng-show="buyGoodsList.clothes.price">{{buyGoodsList.clothes.num * buyGoodsList.clothes.price}}</mark>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 panel panel-success">
+                <div class="panel panel-body">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">食品</span>
+                            <select class="form-control" ng-model="buyGoodsList.foods.name">
+                                <option ng-repeat="item in goods.products | filter:categratesFilterFn1" ng-value="{{item.goodsName}}">{{item.goodsName}}</option>
+                            </select>
+                            <span class="input-group-addon"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货物类别</span>
+                            <select class="form-control" ng-model="buyGoodsList.foods.cate" required="on">
+                                <option value="食品" ng-selected="selected">食品</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">食品数量</span>
+                            <input type="number" class="form-control" min="100" max="100000" ng-model="buyGoodsList.foods.num">
+                            <span class="input-group-addon">至少100</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">食品单价</span>
+                            <input type="number" class="form-control" ng-model="buyGoodsList.foods.price">
+                            <span class="input-group-addon">￥</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货源公司</span>
+                            <select class="form-control" ng-model="buyGoodsList.foods.sourceCom">
+                                <option value="Company W">Company W</option>
+                                <option value="Company M">Company M</option>
+                                <option value="Company S">Company S</option>
+                                <option value="Company F">Company F</option>
+                            </select>
+                            <span class="input-group-addon">￥</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-footer alert alert-warning">
+                    食品费用：￥<mark class="text-danger" ng-show="buyGoodsList.foods.price">{{buyGoodsList.foods.num * buyGoodsList.foods.price}}</mark>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 panel panel-success">
+                <div class="panel panel-body">
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">文具</span>
+                            <select class="form-control" ng-model="buyGoodsList.writingMaterial.name">
+                                <option ng-repeat="item in goods.products | filter:categratesFilterFn3" ng-value="{{item.goodsName}}">{{item.goodsName}}</option>
+                            </select>
+                            <span class="input-group-addon"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货物类别</span>
+                            <select class="form-control" ng-model="buyGoodsList.writingMaterial.cate" required="on">
+                                <option value="文具" ng-selected="selected">文具</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">文具数量</span>
+                            <input type="number" class="form-control" min="100" max="100000" ng-model="buyGoodsList.writingMaterial.num">
+                            <span class="input-group-addon">至少100</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">文具单价</span>
+                            <input type="number" class="form-control" ng-model="buyGoodsList.writingMaterial.price">
+                            <span class="input-group-addon">￥</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">货源公司</span>
+                            <select class="form-control" ng-model="buyGoodsList.writingMaterial.sourceCom">
+                                <option value="Company W">Company W</option>
+                                <option value="Company M">Company M</option>
+                                <option value="Company S">Company S</option>
+                                <option value="Company F">Company F</option>
+                            </select>
+                            <span class="input-group-addon">￥</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-footer alert alert-warning">
+                    文具费用：￥<mark class="text-danger" ng-show="buyGoodsList.writingMaterial.price">{{buyGoodsList.writingMaterial.num * buyGoodsList.writingMaterial.price}}</mark>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-1 col-sm-10 text-center">
+                    <button type="submit" class="btn btn-primary btn-group-justified active btn-lg" id="insertproduct" data-toggle="tooltip" data-placement="top" title="请仔细检查提交的选项" ng-click="insertList(buyGoodsList)" ng-class="requireForm()">提交</button>
+                </div>
+            </div>
+            <div class="panel panel-footer alert alert-warning">
+                总费用：￥<mark class="text-danger" ng-show="buyGoodsList.writingMaterial.price">{{(buyGoodsList.writingMaterial.num * buyGoodsList.writingMaterial.price) + (buyGoodsList.foods.num * buyGoodsList.foods.price) + (buyGoodsList.clothes.num * buyGoodsList.clothes.price)}}</mark>
+            </div>
+        </form>
+    </div>
+</div>

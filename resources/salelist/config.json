@@ -1,0 +1,45 @@
+{
+	"type": "Collection",
+	"properties": {
+		"saleID": {
+			"name": "saleID",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "saleID",
+			"order": 0
+		},
+		"clothes": {
+			"name": "clothes",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "clothes",
+			"order": 1
+		},
+		"foods": {
+			"name": "foods",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "foods",
+			"order": 2
+		},
+		"writingMaterial": {
+			"name": "writingMaterial",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "writingMaterial",
+			"order": 3
+		},
+		"saleDate": {
+			"name": "saleDate",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "saleDate",
+			"order": 4
+		}
+	}
+}

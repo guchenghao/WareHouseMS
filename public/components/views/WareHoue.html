@@ -1,0 +1,149 @@
+<!--系统简介的模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">系统简介</h4>
+            </div>
+            <div class="modal-body">
+                一个公司希望为控制它的货存建立一个出库管理新系统。货存中的产品被分为几类，如服装、食品和文具。当产品需要从供应商那里重新订购时，工作人员需要提出一个购买清单。跟踪记录要提供买进、卖出的货物以及其他费用。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" ng-controller="indexcontroller">
+    <div class="row">
+        <div class="jumbotron col-md-8 col-sm-8">
+            <h1 id="Goods_system">仓库出库管理系统</h1>
+            <p></p>
+            <p>
+                <a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#myModal">更多</a>
+            </p>
+        </div>
+        <div class="list-group col-md-3 col-sm-3 col-sm-offset-1">
+            <a ng-href="#/goods" class="list-group-item" ng-class="getListClass(2)" ng-click="selectItem(2)">仓库货存</a>
+            <a ng-href="#/sale_list" class="list-group-item" ng-class="getListClass(3)" ng-click="selectItem(3)">出库清单</a>
+            <a ng-href="#/sale_record" class="list-group-item" ng-class="getListClass(6)" ng-click="selectItem(6)">清单详情</a>
+            <a ng-href="#/output_goods" class="list-group-item" ng-class="getListClass(4)" ng-click="selectItem(4)">货物出库</a>
+            <a ng-href="#/" class="list-group-item" ng-class="getListClass(7)" ng-click="selectItem(7)">联系作者</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img src="./components/images/T_Shirt.jpg" alt="T恤衫">
+                <div class="caption">
+                    <h3>T恤</h3>
+                    <p>T恤或称T卹、T字衫（英文：T-shirt）是衣衫的一种，通常是短袖而圆领的，长及腰间，一般没有钮扣、领子或袋。摊开时呈T形，因而得名。穿着时把头部穿过领子即成。T恤一般以棉或是人造纤维大规模制造，以平针编织出柔软的质地。</p>
+                    <p>
+                        <a href="#/goods" class="btn btn-primary" role="button">更多</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img src="./components/images/chips.jpg" alt="薯片">
+                <div class="caption">
+                    <h3>
+                        <strong>薯片</strong>
+                    </h3>
+                    <p>马铃薯片（英文：Potato chip ），中国国家标准称为马铃薯片，在各地的俗称有：上海称洋山芋片，香港称薯片，中国北方也叫土豆片，台湾称洋芋片，是指由马铃薯制成的零食。制作方法是把马铃薯切为薄片，然后炸或烤至脆口并加以调味即可</p>
+                    <p>
+                        <a href="#/goods" class="btn btn-primary" role="button">更多</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="thumbnail">
+                <img src="./components/images/pencils.jpg" alt="铅笔">
+                <div class="caption">
+                    <h3>
+                        <strong>铅笔</strong>
+                    </h3>
+                    <p>铅笔（英语：pencil），是一种用于在纸上书写、绘画的手持式笔、工具，它是用石墨为笔芯（除了彩色铅笔以外）以及木杆为外包层而制作的，铅笔的尾端也可以带有一个橡皮擦，铅笔与其他笔（除了可擦笔以外）的不同之处在于它的笔迹很容易被擦掉。黑色的铅笔叫木黑，颜色铅笔叫木颜色。</p>
+                    <p>
+                        <a href="#/goods" class="btn btn-primary" role="button">更多</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row panel panel-default" ng-controller="feedBackcontroller">
+        <div class="panel panel-body">
+            <h2 class="headText">反馈<span class="label label-warning pull-right">预览</span>
+            </h2>
+            <div class="pull-left col-sm-6">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="inputname" class="col-sm-3 control-label name">姓名</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputname" placeholder="Name" ng-model="feedBack.name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-3 control-label email">邮箱</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Email" ng-model="feedBack.emailAD">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputtime" class="col-sm-3 control-label time">日期</label>
+                        <div class="col-sm-9">
+                            <input type="date" class="form-control" id="inputtime" ng-model="feedBack.date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputComments" class="col-sm-3 control-label comment" ng-model="feedBack.advice">建议</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" rows="5" placeholder="Please write your advice...." ng-model="feedBack.advice"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    确定
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 text-right">
+                            <button type="submit" class="btn btn-primary btn-group-justified active btn-lg">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="pull-right col-sm-6">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-info">
+                        <span class="badge">{{feedBack.name}}</span>
+                        姓名
+                    </li>
+                    <li class="list-group-item list-group-item-info">
+                        <span class="badge">{{feedBack.emailAD}}</span>
+                        邮箱
+                    </li>
+                    <li class="list-group-item list-group-item-info">
+                        <span class="badge">{{feedBack.date}}</span>
+                        日期
+                    </li>
+                    <li class="list-group-item list-group-item-info">
+                        <span class="badge">{{feedBack.advice}}</span>
+                        建议
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
